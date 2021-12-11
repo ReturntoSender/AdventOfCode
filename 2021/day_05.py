@@ -1,18 +1,19 @@
 def read_input(file):
     with open(file) as f:
         line = f.read().split('\n')
-    return line
+        coords = [cord.split(' -> ') for cord in line]
+    return coords
 
 
 def solve(data):
-    return None
+    return data
 
 
 def solve2(data):
-    return None
+    return data
 
 
-answer_1 = solve(*read_input("input_klein_05.txt"))
+answer_1 = solve(read_input("input_klein_05.txt"))
 #answer_2 = solve2(*read_input("input_klein_05.txt"))
 
 
