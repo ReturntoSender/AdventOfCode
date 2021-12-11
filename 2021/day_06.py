@@ -18,12 +18,15 @@ def solve(data):
                 fish -= 1
             new_data.append(fish)
         data = new_data
+
     return len(data)
 
 
 def solve2(data):
-    super_long_cycle = 128
-    for i in range(super_long_cycle):
+    stats = []
+    short_cycle = 10
+    long_cycle = 256
+    for i in range(short_cycle):
         new_data = []
         for fish in data:
             if fish == 0:
@@ -33,13 +36,16 @@ def solve2(data):
                 fish -= 1
             new_data.append(fish)
         data = new_data
-        print(f'Tag {i+1} - {len(new_data)}')
-    return len(data)
+
+        stats.append(len(data))
+    for i in range(long_cycle - short_cycle):
+        stats.append(stats[-7] + stats[-9])
+    return stats[-1]
 
 
-#answer_1 = solve(read_input('input_06.txt'))
-answer_2 = solve2(read_input("input_klein_06.txt"))
+answer_1 = solve(read_input('input_06.txt'))
+answer_2 = solve2(read_input("input_06.txt"))
 
 
-#print(f"Die Loesung 1: {answer_1}")
+print(f"Die Loesung 1: {answer_1}")
 print(f"Die Loesung 2: {answer_2}")
