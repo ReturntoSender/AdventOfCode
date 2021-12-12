@@ -1,25 +1,49 @@
 def read_input(file):
     with open(file) as f:
-        data = f.read()
+        data = f.read().strip().split('\n')
+
     return data
-
-
-digits = [abcefg, cf, acdeg, acdfg, bcdf, abdfg, abdefg, acf, abcdefg, abcdfg]
 
 
 def solve(data):
 
-    return min(counter)
+    lines = []
+    digits = [2, 3, 4, 7]
+    counter = 0
+
+    for line in data:
+        line = (line.split(' | ')[1]).split()
+        lines.append(line)
+    for line in lines:
+        for digit in line:
+            if len(digit) in digits:
+                counter += 1
+
+    return counter
+
+
+def sortLength(item):
+            return len(item)
 
 
 def solve2(data):
 
-    return min(counter)
+    lines = []
+    digit_list = []
+
+    for line in data:
+        wire = line.split(' ')[:10]
+        code = line.split(' ')[-4:]        
+        wire.sort(key = sortLength)
+        print(f'{wire} - {code}')
 
 
-answer_1 = solve(read_input('input_klein_08.txt'))
-#answer_2 = solve2(read_input("input_klein_08.txt"))
+    return sum(digit_list)
 
 
-print(f"Die Loesung 1: {answer_1}")
-#print(f"Die Loesung 2: {answer_2}")
+#answer_1 = solve(read_input('input_08.txt'))
+answer_2 = solve2(read_input("input_klein_08.txt"))
+
+
+#print(f"Die Loesung 1: {answer_1}")
+print(f"Die Loesung 2: {answer_2}")
