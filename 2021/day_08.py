@@ -4,6 +4,9 @@ def read_input(file):
     return data
 
 
+digits = [abcefg, cf, acdeg, acdfg, bcdf, abdfg, abdefg, acf, abcdefg, abcdfg]
+
+
 def solve(data):
 
     return min(counter)
